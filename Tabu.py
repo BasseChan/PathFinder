@@ -87,7 +87,6 @@ class Tabu:
         for k in range(STEP_LIMIT):
             for i in range(OP_LIMIT):
                 N = getN(sBestLocal)
-                # print('a', len(N))
                 bestN = None
                 bestNCost = float('inf')
                 counterT = 0
@@ -98,17 +97,13 @@ class Tabu:
                             T.append(n)
                             if len(T) > maxT:
                                 T.pop(0)
-                                # print("usuwam")
                             nCost = self.getCost(start, n, method, startTime)
                             if nCost < bestNCost:
                                 bestN = n
                                 bestNCost = nCost
-                        # else:
-                        #     print("pomijam")
                     else:
                         counterT += 1
 
-                # print(len(T))
                 if bestNCost < sBestLocalCost:
                     sBestLocal = bestN
                     sDistance = self.getTotalDistance(distance, sBestLocal)
@@ -117,7 +112,6 @@ class Tabu:
                 if counterT == len(N):
                     random.shuffle(sBestLocal)
                     sBestLocalCost = self.getCost(start, sBestLocal, method, startTime)
-                    # print("mieszam")
             if sBestLocalCost < sBestCost:
                 sBest = sBestLocal
                 sBestCost = sBestLocalCost

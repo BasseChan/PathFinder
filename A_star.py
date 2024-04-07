@@ -73,7 +73,6 @@ class A_star:
         y2 = node2.node.y
         deltaX = abs(x1 - x2)
         deltaY = abs(y1 - y2)
-        # delta = math.sqrt(deltaX ** 2 + deltaY ** 2)
         delta = deltaX + deltaY
         return delta / 0.011117
 
@@ -132,7 +131,6 @@ class A_star:
                         if nextNode in closed:
                             opened.append(nextNode)
                             closed.remove(nextNode)
-        # print(endNode.g, endNode.g2)
         stopperEnd = time.time()
         return endNode, (stopperEnd - stopperStart), start, stop, timeStart, method
 

@@ -30,14 +30,6 @@ class Dijkstra:
             value.resetNode()
             self.Q.append(value)
 
-    # def printRoad(self, stop):
-    #     if stop.p is None:
-    #         print(f"{stop.node.name}", end="")
-    #         return
-    #     self.printRoad(stop.p)
-    #     print(f" {stop.pEdge.line} {timeToString(stop.pEdge.startTime)} - {timeToString(stop.pEdge.endTime)} "
-    #           f"\n{stop.node.name}", end="")
-
     def printRoadHelper(self, stop, line, startTime):
         edge = stop.pEdge
         prev = stop.p
